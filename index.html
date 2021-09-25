@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9b0a721b1b.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
+    <title>Social card</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <script type="text/babel">
+        const rootElement = document.getElementById('root');
+        class Scard extends React.Component{
+            render(){
+                return(
+                <React.Fragment>
+                    <div className="container">
+                        <div className="card-container">
+                            <div className="header">
+                                <span>
+                                    <img src="foto.jpg" alt="Foto"/>
+                                </span>
+                                <h2> {`${this.props.nombre}`}</h2>
+                                <h3>{`${this.props.carrera}`}</h3>
+                            </div>
+
+                            <div className="description">
+                                <p>{`${this.props.descripción1}`}</p>
+                                <p>{`${this.props.descripción2}`}</p>
+                                <p>{`${this.props.descripción3}`}</p>
+                                <div className="social">
+                                <h4>Follow me</h4>
+                                    <a href="https://www.facebook.com/jaimebryan.peraleshernandez"><i className="fab fa-facebook"></i></a>
+                                    <a href="https://instagram.com/j_brayitan?utm_medium=copy_link"><i className="fab fa-instagram"></i></a> 
+                                    <a href="https://github.com/contraaplayer"><i className="fab fa-github"></i></a>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </React.Fragment>
+                );
+            }
+        }
+    ReactDOM.render(
+        <Scard
+            nombre="Jaime Bryan Perales Hernández"
+            carrera="Ingeniero en TI"
+            descripción1="Estudiante del Tecnologico de Monterrey cursando el noveno semestre"
+            descripción2="Amante de las tecnologias de la información, de los videojuegos y de las buenas historias"
+            descripción3="Su mas grande sueño es crear su videojuego"
+            />,
+            rootElement
+    )
+    </script>   
+</body>
+</html>
