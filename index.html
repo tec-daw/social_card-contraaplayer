@@ -19,8 +19,15 @@
     <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
     <script type="text/babel">
         const rootElement = document.getElementById('root');
-        class Scard extends React.Component{
-            render(){
+        
+        //Pagina
+        function Scard(props) {//cree una funcion para dibujar la interfaz y como parametros le pase los props que leera
+            const [nombre,setNombre] = React.useState(props.nombre);//Cree un arreglo donde la primera posicion del arreglo tendra el valor inicial del estado y "setNombre" guardara el siguiente valor que se le agregue
+            const [carrera,setCarrera] = React.useState(props.carrera);//Despues  usestate es una forma de usar "this.state", entonces entendi que estoy apuntando al valor que esta teniendo mi prop en ese momento
+            const [d1,setd1] = React.useState(props.d1);//En este caso estoy guardando el valor actual "d1" que sera guardado en el arreglo.
+            const [d2,setd2] = React.useState(props.d2);
+            const [d3,setd3] = React.useState(props.d3);
+            //Ya por ultimo solo pase el nombre de las props a las etiquetas para que solo se imprimieran a mi pagina.
                 return(
                 <React.Fragment>
                     <div className="container">
@@ -29,14 +36,14 @@
                                 <span>
                                     <img src="foto.jpg" alt="Foto"/>
                                 </span>
-                                <h2> {`${this.props.nombre}`}</h2>
-                                <h3>{`${this.props.carrera}`}</h3>
+                                <h2> {`${nombre}`}</h2>
+                                <h3>{`${carrera}`}</h3>
                             </div>
 
                             <div className="description">
-                                <p>{`${this.props.descripción1}`}</p>
-                                <p>{`${this.props.descripción2}`}</p>
-                                <p>{`${this.props.descripción3}`}</p>
+                                <p>{`${d1}`}</p>
+                                <p>{`${d2}`}</p>
+                                <p>{`${d3}`}</p>
                                 <div className="social">
                                 <h4>Follow me</h4>
                                     <a href="https://www.facebook.com/jaimebryan.peraleshernandez"><i className="fab fa-facebook"></i></a>
@@ -48,15 +55,14 @@
                     </div>
                 </React.Fragment>
                 );
-            }
         }
     ReactDOM.render(
         <Scard
             nombre="Jaime Bryan Perales Hernández"
             carrera="Ingeniero en TI"
-            descripción1="Estudiante del Tecnologico de Monterrey cursando el noveno semestre"
-            descripción2="Amante de las tecnologias de la información, de los videojuegos y de las buenas historias"
-            descripción3="Su mas grande sueño es crear su videojuego"
+            d1="Estudiante del Tecnologico de Monterrey cursando el noveno semestre"
+            d2="Amante de las tecnologias de la información, de los videojuegos y de las buenas historias"
+            d3="Su mas grande sueño es crear su videojuego"
             />,
             rootElement
     )
